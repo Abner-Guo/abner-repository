@@ -16,6 +16,7 @@
     <modules>
         <module>repository-template</module>
         <module>repository-common</module>
+        <module>repository-document</module>
     </modules>
 
     <groupId>pers.guo</groupId>
