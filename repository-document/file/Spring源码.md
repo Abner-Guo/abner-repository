@@ -9,7 +9,7 @@
 
 - 先把开源项目Fork到自己的仓库，方便提交自己修改
 
-![截屏2023-03-17 18.33.47](/Users/abner/abner-repository/repository-document/file/img/Spring源码/截屏2023-03-17 18.33.47.png)
+![截屏2023-03-17 18.33.47](./img/Spring源码/截屏2023-03-17 18.33.47.png)
 
 - IDEA 检出对应版本，对应 的小版本要检出tag,以`v5.3.24`例
 
@@ -20,7 +20,7 @@
   >- tag 很多，可以随时按`q`退出
   >- 查看tag 信息：`git show`
 
-  ![截屏2023-03-17 18.44.45](/Users/abner/abner-repository/repository-document/file/img/Spring源码/截屏2023-03-17 18.44.45.png)
+  ![截屏2023-03-17 18.44.45](./img/Spring源码/截屏2023-03-17 18.44.45.png)
 
 ## gradle 修改
 
@@ -34,11 +34,11 @@
     maven { url "https://repo.springsource.org/plugins-release" }
     ```
 
-    ![截屏2023-03-17 19.00.17](/Users/abner/abner-repository/repository-document/file/img/Spring源码/截屏2023-03-17 19.00.17.png)
+    ![截屏2023-03-17 19.00.17](./img/Spring源码/截屏2023-03-17 19.00.17.png)
 
   - `settings.gradle`文件修改
 
-    ![截屏2023-03-17 19.01.04](/Users/abner/abner-repository/repository-document/file/img/Spring源码/截屏2023-03-17 19.01.04-9051070.png)
+    ![截屏2023-03-17 19.01.04](./img/Spring源码/截屏2023-03-17 19.01.04-9051070.png)
 
     ```gradle
     maven { url "https://maven.aliyun.com/nexus/content/groups/public/" }
@@ -49,13 +49,13 @@
 
 - IDEA相关设置
 
-![截屏2023-03-17 19.05.31](/Users/abner/abner-repository/repository-document/file/img/Spring源码/截屏2023-03-17 19.05.31.png)
+![截屏2023-03-17 19.05.31](./img/Spring源码/截屏2023-03-17 19.05.31.png)
 
 
 
 ## 编译
 
-![截屏2023-03-17 19.09.27](/Users/abner/abner-repository/repository-document/file/img/Spring源码/截屏2023-03-17 19.09.27.png)
+![截屏2023-03-17 19.09.27](./img/Spring源码/截屏2023-03-17 19.09.27.png)
 
 编译完成
 
@@ -65,15 +65,15 @@
 
 按图顺序操作
 
-![截屏2023-03-17 13.27.07](/Users/abner/abner-repository/repository-document/file/img/Spring源码/截屏2023-03-17 13.27.07.png)
+![截屏2023-03-17 13.27.07](./img/Spring源码/截屏2023-03-17 13.27.07.png)
 
-![截屏2023-03-17 13.30.55](/Users/abner/abner-repository/repository-document/file/img/Spring源码/截屏2023-03-17 13.30.55.png)
+![截屏2023-03-17 13.30.55](./img/Spring源码/截屏2023-03-17 13.30.55.png)
 
-![截屏2023-03-17 13.28.08](/Users/abner/abner-repository/repository-document/file/img/Spring源码/截屏2023-03-17 13.28.08.png)
+![截屏2023-03-17 13.28.08](./img/Spring源码/截屏2023-03-17 13.28.08.png)
 
-![截屏2023-03-17 13.29.02](/Users/abner/abner-repository/repository-document/file/img/Spring源码/截屏2023-03-17 13.29.02.png)
+![截屏2023-03-17 13.29.02](./img/Spring源码/截屏2023-03-17 13.29.02.png)
 
-![截屏2023-03-17 13.29.05](/Users/abner/abner-repository/repository-document/file/img/Spring源码/截屏2023-03-17 13.29.05.png)
+![截屏2023-03-17 13.29.05](./img/Spring源码/截屏2023-03-17 13.29.05.png)
 
 
 
