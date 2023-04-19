@@ -1,0 +1,13 @@
+server:
+  port: 9093
+
+spring:
+  application:
+    name: shopping-user
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 129.204.200.175:8848 #nacos服务地址
+        #namespace: fafa1d68-7eda-4300-aeb4-5452afa09248
+      config:
+        server-addr: 129.204.200.175:8848 #nacos服务地址
