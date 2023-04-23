@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @createDate: 2023/4/19 20:37
  */
 @RestController
-@AllArgsConstructor
 @RequestMapping("/goods/manager/productCategory")
 public class ProductCategoryController implements ProductCategoryControllerApi {
 

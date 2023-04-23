@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    sentinel:
+      transport:
+        dashboard: 129.204.200.175:8718 #sentinel地址
+        port: 19091 #sentinel监控端口
+      eager: true
