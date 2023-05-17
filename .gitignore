@@ -167,3 +167,15 @@ hs_err_pid*
 # End of https://www.gitignore.io/api/java,eclipse,intellij
 
 /.mvn/wrapper/maven-wrapper.properties
+/repository-cloud/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+/repository-cloud/.gradle/buildOutputCleanup/cache.properties
+/repository-cloud/.gradle/checksums/checksums.lock
+/repository-cloud/.gradle/6.1.1/executionHistory/executionHistory.bin
+/repository-cloud/.gradle/6.1.1/executionHistory/executionHistory.lock
+/repository-cloud/.gradle/6.1.1/fileHashes/fileHashes.bin
+/repository-cloud/.gradle/6.1.1/fileHashes/fileHashes.lock
+/repository-cloud/.gradle/6.1.1/gc.properties
+/repository-cloud/.gradle/vcs-1/gc.properties
+/repository-document/file/img/面试/image-20230516101721610.png
+/repository-cloud/.gradle/6.1.1/fileChanges/last-build.bin
+/repository-cloud/.gradle/buildOutputCleanup/outputFiles.bin
