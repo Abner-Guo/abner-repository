@@ -77,6 +77,32 @@
 
 
 
+# 报错记录
+
+1. kotlin&kotlinx相关依赖报错
+
+https://blog.csdn.net/qq_39530821/article/details/120540134?spm=1001.2014.3001.5506
+
+2. 使用版本对用的gradle版本编译
+
+   源码中找到gradle-wrapper.properties文件,打开此文件看到如下内容：
+
+   ```
+   distributionBase=GRADLE_USER_HOME
+   distributionPath=wrapper/dists
+   distributionUrl=https\://services.gradle.org/distributions/gradle-7.5.1-bin.zip
+   zipStoreBase=GRADLE_USER_HOME
+   zipStorePath=wrapper/dists
+   ```
+
+   IDEA 也配置`gradle-7.5.1`
+
+
+
+
+
+
+
 # 参考地址
 
 https://blog.csdn.net/niuqingyi/article/details/114272794
@@ -98,4 +124,6 @@ https://blog.csdn.net/xyaicwj/article/details/125256149
 ```shell
 git remote set-url origin https://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@github.com/Abner-Guo/spring-framework.git
 ```
+
+
 
