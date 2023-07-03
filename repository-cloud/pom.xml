@@ -10,6 +10,7 @@
         <module>shopping-product</module>
         <module>shopping-seckill</module>
         <module>shopping-user</module>
+        <module>shopping-gateway</module>
     </modules>
 
     <properties>
