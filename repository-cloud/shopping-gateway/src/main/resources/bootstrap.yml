@@ -14,9 +14,9 @@ spring:
     gateway:
       # routes就是路由的意思,在此处配置是一个数组类型
       routes:
-        - id: shopping_order   # 路由的唯一标识
-          #uri: lb://shopping-order  #需要转发的地址 lb:使用nacos 的本地负载均衡
-          uri: http://localhost:9090  #需要转发的地址
+        - id: shopping-order   # 路由的唯一标识
+          uri: lb://shopping-order  #需要转发的地址 lb:使用nacos 的本地负载均衡
+          #uri: http://localhost:9090  #需要转发的地址
           #断言规则 用于规则的匹配
           predicates:
             - Path=/order-serv/**
