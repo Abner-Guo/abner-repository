@@ -1,11 +1,9 @@
 package pers.guo.repositorytemplate.sysio.netty;
 
 import io.netty.buffer.ByteBuf;
-import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.CharsetUtil;
-import io.netty.util.concurrent.EventExecutorGroup;
 
 /**
  * 手动实现netty 代码
@@ -16,7 +14,7 @@ import io.netty.util.concurrent.EventExecutorGroup;
  * @description: TODO
  * @date 2023/7/10 23:18
  */
-public class MyInHandler extends ChannelInboundHandlerAdapter {
+public class MyClientInHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
@@ -43,8 +41,6 @@ public class MyInHandler extends ChannelInboundHandlerAdapter {
          */
         CharSequence str = buf.getCharSequence(0, buf.readableBytes(), CharsetUtil.UTF_8);
         System.out.println(str);
-        buf.writeBytes("ACK".getBytes());
-        ctx.writeAndFlush(buf);
     }
 
 
