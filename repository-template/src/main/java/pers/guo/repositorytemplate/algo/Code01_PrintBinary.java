@@ -1,6 +1,7 @@
 package pers.guo.repositorytemplate.algo;
 
 /**
+ * 二进制，位运算
  * @author: guochao.bj@fang.com
  * @createDate: 2023/8/17 18:36
  */

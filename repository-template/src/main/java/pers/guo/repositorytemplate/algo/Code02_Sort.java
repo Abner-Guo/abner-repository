@@ -1,6 +1,7 @@
 package pers.guo.repositorytemplate.algo;
 
 /**
+ * 排序
  * @author: guochao.bj@fang.com
  * @createDate: 2023/8/18 10:46
  */
