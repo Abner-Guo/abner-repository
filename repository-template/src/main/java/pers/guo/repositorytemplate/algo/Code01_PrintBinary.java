@@ -26,7 +26,10 @@ public class Code01_PrintBinary {
 
 
     public static void main(String[] args) {
-        point(Integer.MIN_VALUE);
+        point(6);
+        point(~6);
+        point(~6+1);
+        point(-6);
     }
 
 
