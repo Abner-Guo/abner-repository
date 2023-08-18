@@ -16,6 +16,13 @@ public class Code01_PrintBinary {
      * 5.最小的负数，取相反数还是本身
      */
 
+    /**
+     * int整数打印二进制
+     * @param num
+     * @return void
+     * @author guochao.bj@fang.com
+     * @date 2023/8/18
+     */
     public static void point(int num){
 
         for (int i = 31; i >=0 ; i--) {
