@@ -12,8 +12,28 @@ public class Code03_PreSum {
      *
      * 随机函数Math.random
      *
+     * 对数器
+     *
      *
      */
+
+
+    public static class RangeSum{
+
+        int [] sumArray;
+
+        public RangeSum(int [] array){
+            sumArray = new int[array.length];
+            sumArray[0]=array[0];
+            for (int i = 1; i < array.length; i++) {
+                sumArray[i]=sumArray[i-1]+array[i];
+            }
+        }
+
+        public int rangeSum(int left,int right){
+            return left==0?sumArray[right]:sumArray[right]-sumArray[left-1];
+        }
+    }
 
 
 }
