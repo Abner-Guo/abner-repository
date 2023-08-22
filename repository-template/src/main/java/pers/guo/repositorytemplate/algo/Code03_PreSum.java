@@ -1,5 +1,7 @@
 package pers.guo.repositorytemplate.algo;
 
+import javax.management.RuntimeErrorException;
+
 /**
  * 前缀和
  * @author: guochao.bj@fang.com
@@ -37,7 +39,45 @@ public class Code03_PreSum {
         public int rangeSum(int left,int right){
             return left==0?sumArray[right]:sumArray[right]-sumArray[left-1];
         }
+
+        public int[] getSumArray() {
+            return sumArray;
+        }
     }
+
+
+    private static int [] getRandArray(int length,int maxValue){
+
+        if (length==0||maxValue==0){
+            throw new RuntimeErrorException(new Error("length or maxValue =< 0"));
+        }
+
+        int[] ints = new int[(int) ((length + 1) * Math.random())];
+        for (int i = 0; i < length; i++) {
+
+            ints[i]=(int) (Math.random()*maxValue);
+        }
+        return ints;
+    }
+
+    private static void print(int[] array){
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i]+" ");
+        }
+    }
+
+
+    public static void main(String[] args) {
+        int[] randArray = getRandArray(10, 10);
+        print(randArray);
+        System.out.println();
+        RangeSum rangeSum = new RangeSum(randArray);
+        print(rangeSum.getSumArray());
+        System.out.println();
+        System.out.println(rangeSum.rangeSum(2, 5));
+
+    }
+
 
 
 }

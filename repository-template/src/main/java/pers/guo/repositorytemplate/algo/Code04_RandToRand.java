@@ -1,9 +1,10 @@
 package pers.guo.repositorytemplate.algo;
 
 /**
+ * 对数器
  * @author abner
  * @version 1.0
- * @description: 对数器
+ * @description: 对数器测试
  * @date 2023/8/21 22:33
  */
 public class Code04_RandToRand {
