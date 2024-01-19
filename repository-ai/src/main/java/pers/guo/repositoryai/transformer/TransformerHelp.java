@@ -12,7 +12,16 @@ import org.nd4j.linalg.ops.transforms.Transforms;
 public class TransformerHelp {
 
 
+    public static INDArray oneHot=Nd4j.create(new double[][]{{1.0, 0},{0,1.0}});
+    public static INDArray twoHot=Nd4j.create(new double[][]{{0.5, 0},{0,0.5}});
+
+
+
+
     public static void main(String[] args) {
+
+        System.out.println(oneHot.c(twoHot));
+
 
         // 假设有3个数据点
         int numDataPoints = 3;
