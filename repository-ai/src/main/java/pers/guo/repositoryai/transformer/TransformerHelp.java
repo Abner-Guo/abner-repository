@@ -2,6 +2,7 @@ package pers.guo.repositoryai.transformer;
 
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
+import org.nd4j.linalg.ops.transforms.Transforms;
 
 /**
  * 模拟Transformer 的组件Help
@@ -22,6 +23,19 @@ public class TransformerHelp {
         // 打印表示腰围和体重对应关系的INDArray
         System.out.println("Waist and Weight Data:\n" + waistWeightData);
 
+        // 示例数据
+        INDArray input = Nd4j.create(new double[]{1.0, 2.0, 3.0});
+
+        // 调用 softmax 函数
+        INDArray result = Transforms.softmax(input);
+
+        // 打印结果
+        System.out.println("Input:");
+        System.out.println(input);
+        System.out.println("Softmax Output:");
+        System.out.println(result);
+
+        System.out.println(selfAttention(false,input,input,input));
 
         INDArray rand = Nd4j.rand(2, 4);
         INDArray rand2 = Nd4j.rand(2, 4);
@@ -97,8 +111,28 @@ public class TransformerHelp {
     }
 
 
+    /**
+     * 自注意力机制 （Q*k）*V
+     * @param isMask 是否掩码操作
+     * @param query 查询数组
+     * @param key
+     * @param value
+     * @return org.nd4j.linalg.api.ndarray.INDArray
+     * @author guochao.bj@fang.com
+     * @date 2024/1/19
+     */
+      public static INDArray selfAttention(Boolean isMask, INDArray query, INDArray key, INDArray value){
+          long dimSize = query.size(-1);
+          // 计算注意力分数
+          INDArray scores = query.mmul(key.transpose()).div(Math.sqrt(dimSize));
 
+          // 在 QK 之后，softmax 之前应用掩码（此处省略掩码操作）
 
+          // 对注意力分数进行 softmax 操作
+          INDArray selfAttn = Transforms.softmax(scores);
+          // 返回加权后的 value 和 self-attention 分数
+          return selfAttn.mmul(value);
+      }
 
 
 }
