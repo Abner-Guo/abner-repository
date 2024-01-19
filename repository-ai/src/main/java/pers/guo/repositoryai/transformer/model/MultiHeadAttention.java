@@ -1,10 +1,13 @@
 package pers.guo.repositoryai.transformer.model;
 
+import org.nd4j.linalg.api.buffer.DataType;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
 import org.nd4j.linalg.ops.transforms.Transforms;
+import org.relaxng.datatype.Datatype;
 
 /**
+ * 多头注意力机制
  * @author: guochao.bj@fang.com
  * @createDate: 2024/1/19 12:54
  */
@@ -49,6 +52,9 @@ public class MultiHeadAttention {
         INDArray scores = query.mmul(key).div(Math.sqrt(dimSize));
 
         // 在 QK 之后，softmax 之前应用掩码（此处省略掩码操作）
+        if (isMask) {
+            //mask其实是为了模型在训练阶段使用，使用阶段此处不处理
+        }
 
         // 对注意力分数进行 softmax 操作
         INDArray selfAttn = Transforms.softmax(scores);
@@ -57,11 +63,39 @@ public class MultiHeadAttention {
     }
 
 
+    /***
+     * @description:  多头注意力机制
+     * @param: input   输入的张量
+     * @param: isMask   是否使用掩码
+     * @return: org.nd4j.linalg.api.ndarray.INDArray
+     * @author abner
+     * @date: 2024/1/19 23:12
+     */
+    public INDArray multiHeadAttention(INDArray input, Boolean isMask) {
+        // 对输入张量进行矩阵乘法操作，得到Q
+        INDArray Q = input.mmul(this.getWq());
+        // 对输入张量进行矩阵乘法操作，得到K
+        INDArray K = input.mmul(this.getWk());
+        // 对输入张量进行矩阵乘法操作，得到V
+        INDArray V = input.mmul(this.getWv());
+
+        // 调用自注意力方法，传入是否使用掩码、Q、K、V
+        return selfAttention(isMask, Q, K, V);
+    }
+
+
     public static void main(String[] args) {
 
-        INDArray input = Nd4j.create(new double[]{1.0, 2.0, 3.0});
+        INDArray input = Nd4j.create(new double[][]{{1.0, 2.0},{2.0,4.0}});
+        INDArray out = Nd4j.create(new double[][]{{1.0, 0},{0,1.0}});
+        System.out.println(out);
+        System.out.println(input.mmul(out));
+        INDArray scaleFactor = Nd4j.create(new double[][]{{0.5, 0},{0,0.5}});
+        System.out.println(input.mmul(scaleFactor));
 
-        System.out.println(selfAttention(true, input, input, input));
+        MultiHeadAttention multiHeadAttention = new MultiHeadAttention(scaleFactor, out, out);
+        System.out.println(multiHeadAttention.multiHeadAttention(input, false));
+
 
     }
 

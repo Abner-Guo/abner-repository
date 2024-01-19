@@ -24,7 +24,7 @@ public class TransformerHelp {
         System.out.println("Waist and Weight Data:\n" + waistWeightData);
 
         // 示例数据
-        INDArray input = Nd4j.create(new double[]{1.0, 2.0, 3.0});
+        INDArray input = Nd4j.create(new double[][]{{1.0, 2.0},{2.0,4.0}});
 
         // 调用 softmax 函数
         INDArray result = Transforms.softmax(input);
@@ -35,6 +35,7 @@ public class TransformerHelp {
         System.out.println("Softmax Output:");
         System.out.println(result);
 
+        System.out.println("selfAttention:");
         System.out.println(selfAttention(false,input,input,input));
 
         INDArray rand = Nd4j.rand(2, 4);
@@ -124,7 +125,7 @@ public class TransformerHelp {
       public static INDArray selfAttention(Boolean isMask, INDArray query, INDArray key, INDArray value){
           long dimSize = query.size(-1);
           // 计算注意力分数
-          INDArray scores = query.mmul(key.transpose()).div(Math.sqrt(dimSize));
+          INDArray scores = query.mmul(key).div(Math.sqrt(dimSize));
 
           // 在 QK 之后，softmax 之前应用掩码（此处省略掩码操作）
 
