@@ -1,10 +1,8 @@
 package pers.guo.repositoryai.transformer.model;
 
-import org.nd4j.linalg.api.buffer.DataType;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
 import org.nd4j.linalg.ops.transforms.Transforms;
-import org.relaxng.datatype.Datatype;
 
 /**
  * 多头注意力机制

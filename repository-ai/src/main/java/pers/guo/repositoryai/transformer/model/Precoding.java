@@ -22,8 +22,8 @@ public class Precoding {
     private static Map<String, INDArray> wordVectors=new HashMap<>();
 
     static {
-        // 将每个单词映射到一个随机向量
-        wordVectors.put("人工智能", Nd4j.rand(1, 2)); // 随机生成一个大小为 1x10 的向量
+        // 将每个单词映射到一个随机向量 随机生成一个大小为 1x2 的向量
+        wordVectors.put("人工智能", Nd4j.rand(1, 2));
         wordVectors.put("在", Nd4j.rand(1, 2));
         wordVectors.put("房地产", Nd4j.rand(1, 2));
         wordVectors.put("公司", Nd4j.rand(1, 2));
@@ -78,11 +78,23 @@ public class Precoding {
      * @date: 2024/1/21 11:37
      */ 
     public static INDArray positionEncoding(INDArray input) {
+        int sequenceLength = input.rows();           // 获取输入矩阵的行数，表示序列的长度
+        int embeddingSize  = input.columns();        // 获取输入矩阵的列数，表示嵌入的维度大小
+        INDArray positionalEncoding = Nd4j.zeros(sequenceLength, embeddingSize);   // 创建一个零矩阵，用于存储位置编码
 
+        for (int pos = 0; pos < sequenceLength; pos++) {   // 遍历序列的每一个位置
+            for (int i = 0; i < embeddingSize; i++) {       // 遍历嵌入的每一个维度
+                double angle = pos / Math.pow(10000, 2.0 * i / embeddingSize);   // 计算角度
+                if (i % 2 == 0) {       // 如果维度是偶数
+                    positionalEncoding.putScalar(pos, i, Math.sin(angle));       // 用正弦值作为位置编码的值
+                } else {               // 如果维度是奇数
+                    positionalEncoding.putScalar(pos, i, Math.cos(angle));       // 用余弦值作为位置编码的值
+                }
+            }
+        }
 
-
-
-        return null;
+        INDArray output = input.add(positionalEncoding);   // 将输入矩阵和位置编码矩阵相加，得到最终的输出矩阵
+        return output;
     }
 
 
@@ -104,6 +116,9 @@ public class Precoding {
 
         System.out.println(tokenization("人工智能在房地产公司的使用前景"));
         System.out.println(Nd4j.rand(2,3));
+        System.out.println(Nd4j.rand(2,3).rows());
+        System.out.println(Nd4j.rand(2,3).columns());
+        System.out.println(positionEncoding(Nd4j.rand(3,2)));
 
     }
 
